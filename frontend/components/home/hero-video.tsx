@@ -148,7 +148,7 @@ export function HeroVideo() {
               <Link href="/gallery">
                 <Button size="lg" 
                 variant="outline"
-                className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground px-8 py-3 bg-transparent">
+                className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground px-8 py-3 bg-transparent dark:text-white">
                   <Play className="w-4 h-4 mr-2" />
                   Watch Our Story
                 </Button>

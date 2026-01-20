@@ -117,7 +117,7 @@ export function PackageBanner() {
             Need something different? We create custom packages for every celebration.
           </p>
           <Link href="/contact">
-            <Button variant="outline" size="lg" className="bg-transparent">
+            <Button variant="outline" size="lg" className="bg-transparent dark:border-white hover:scale-105 transition-transform duration-200">
               Create Custom Package
             </Button>
           </Link>

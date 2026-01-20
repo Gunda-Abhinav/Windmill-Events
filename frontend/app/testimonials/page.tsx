@@ -14,9 +14,9 @@ export default function TestimonialsPage() {
         <ScrollReveal delay={0.1}>
           <TestimonialsGrid />
         </ScrollReveal>
-        <ScrollReveal delay={0.2}>
+        {/* <ScrollReveal delay={0.2}>
           <VideoTestimonials />
-        </ScrollReveal>
+        </ScrollReveal> */}
       </main>
       <Footer />
     </div>

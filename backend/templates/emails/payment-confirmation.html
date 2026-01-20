@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Confirmation - Windmill Events</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f7fa;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse;">
+    <tr>
+      <td align="center" style="padding: 40px 20px;">
+        <!-- Main Container -->
+        <table role="presentation" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
+          
+          <!-- Header -->
+          <tr>
+            <td style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 30px; text-align: center;">
+              <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 600;">
+                ✅ Payment Confirmed!
+              </h1>
+              <p style="margin: 10px 0 0 0; color: #d1fae5; font-size: 14px;">
+                Your registration is complete
+              </p>
+            </td>
+          </tr>
+          
+          <!-- Success Message -->
+          <tr>
+            <td style="padding: 30px 30px 20px 30px;">
+              <div style="background-color: #d1fae5; border-left: 4px solid #10b981; padding: 16px 20px; border-radius: 8px;">
+                <p style="margin: 0; color: #065f46; font-size: 15px; font-weight: 600;">
+                  🎉 Thank you for your payment! Your registration for <strong>{{ eventTitle }}</strong> is confirmed.
+                </p>
+              </div>
+            </td>
+          </tr>
+          
+          <!-- Payment Details Card -->
+          <tr>
+            <td style="padding: 0 30px 30px 30px;">
+              <table role="presentation" style="width: 100%; background-color: #f8fafc; border-radius: 8px; padding: 20px; border-left: 4px solid #667eea;">
+                <tr>
+                  <td>
+                    <h2 style="margin: 0 0 20px 0; color: #1e293b; font-size: 18px; font-weight: 600;">
+                      Payment Details
+                    </h2>
+                    
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td style="padding: 8px 0;">
+                          <strong style="color: #475569; font-size: 14px;">Payment ID:</strong>
+                        </td>
+                        <td style="padding: 8px 0; text-align: right;">
+                          <span style="color: #1e293b; font-size: 13px; font-family: monospace; background-color: #e0e7ff; padding: 4px 8px; border-radius: 4px;">{{ paymentId }}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0;">
+                          <strong style="color: #475569; font-size: 14px;">Transaction ID:</strong>
+                        </td>
+                        <td style="padding: 8px 0; text-align: right;">
+                          <span style="color: #1e293b; font-size: 13px; font-family: monospace;">{{ transactionId }}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0;">
+                          <strong style="color: #475569; font-size: 14px;">Payment Method:</strong>
+                        </td>
+                        <td style="padding: 8px 0; text-align: right;">
+                          <span style="color: #1e293b; font-size: 14px;">PayPal</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0;">
+                          <strong style="color: #475569; font-size: 14px;">Payment Date:</strong>
+                        </td>
+                        <td style="padding: 8px 0; text-align: right;">
+                          <span style="color: #1e293b; font-size: 14px;">{{ paymentDate | formatDate }}</span>
+                        </td>
+                      </tr>
+                      <tr style="border-top: 2px solid #e2e8f0;">
+                        <td style="padding: 12px 0 8px 0;">
+                          <strong style="color: #1e293b; font-size: 16px;">Amount Paid:</strong>
+                        </td>
+                        <td style="padding: 12px 0 8px 0; text-align: right;">
+                          <span style="color: #10b981; font-size: 18px; font-weight: 700;">${{ totalAmount }}</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          
+          <!-- Registration Details Card -->
+          <tr>
+            <td style="padding: 0 30px 30px 30px;">
+              <table role="presentation" style="width: 100%; background-color: #fef3c7; border-radius: 8px; padding: 20px; border-left: 4px solid #f59e0b;">
+                <tr>
+                  <td>
+                    <h2 style="margin: 0 0 20px 0; color: #1e293b; font-size: 18px; font-weight: 600;">
+                      Event & Registration Details
+                    </h2>
+                    
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td style="padding: 8px 0;">
+                          <strong style="color: #78350f; font-size: 14px;">Registration ID:</strong>
+                        </td>
+                        <td style="padding: 8px 0; text-align: right;">
+                          <span style="color: #1e293b; font-size: 13px; font-family: monospace; background-color: #fde68a; padding: 4px 8px; border-radius: 4px;">{{ registrationId }}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0;">
+                          <strong style="color: #78350f; font-size: 14px;">Event:</strong>
+                        </td>
+                        <td style="padding: 8px 0; text-align: right;">
+                          <span style="color: #1e293b; font-size: 14px; font-weight: 600;">{{ eventTitle }}</span>
+                        </td>
+                      </tr>
+                      {% if eventDate %}
+                      <tr>
+                        <td style="padding: 8px 0;">
+                          <strong style="color: #78350f; font-size: 14px;">Event Date:</strong>
+                        </td>
+                        <td style="padding: 8px 0; text-align: right;">
+                          <span style="color: #1e293b; font-size: 14px;">{{ eventDate | formatDate }}</span>
+                        </td>
+                      </tr>
+                      {% endif %}
+                      {% if venue %}
+                      <tr>
+                        <td style="padding: 8px 0;">
+                          <strong style="color: #78350f; font-size: 14px;">Venue:</strong>
+                        </td>
+                        <td style="padding: 8px 0; text-align: right;">
+                          <span style="color: #1e293b; font-size: 14px;">{{ venue }}</span>
+                        </td>
+                      </tr>
+                      {% endif %}
+                      <tr>
+                        <td style="padding: 8px 0;">
+                          <strong style="color: #78350f; font-size: 14px;">Attendee Name:</strong>
+                        </td>
+                        <td style="padding: 8px 0; text-align: right;">
+                          <span style="color: #1e293b; font-size: 14px;">{{ fullName }}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0;">
+                          <strong style="color: #78350f; font-size: 14px;">Number of Passes:</strong>
+                        </td>
+                        <td style="padding: 8px 0; text-align: right;">
+                          <span style="color: #1e293b; font-size: 14px; font-weight: 600;">{{ passes }}</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          
+          <!-- Footer -->
+          <tr>
+            <td style="background-color: #f8fafc; padding: 20px 30px; text-align: center; border-top: 1px solid #e2e8f0;">
+              <p style="margin: 0 0 10px 0; color: #64748b; font-size: 13px;">
+                Please save this email for your records. If you have any questions, feel free to contact us.
+              </p>
+              <p style="margin: 0; color: #94a3b8; font-size: 12px;">
+                © {{ year }} Windmill Events. All rights reserved.
+              </p>
+            </td>
+          </tr>
+          
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+

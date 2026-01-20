@@ -1,0 +1,36 @@
+{
+  "name": "windmill-backend",
+  "version": "0.1.0",
+  "private": true,
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "cross-env PORT=4000 NEXT_PORT=3000 nodemon server.js",
+    "start": "cross-env PORT=4000 NEXT_PORT=3000 node server.js",
+    "email:worker": "node email_worker_simple.js",
+    "email:test": "node test_email_templates.js",
+    "migrate": "node run_migrations.js",
+    "health": "node -e \"require('http').get('http://localhost:'+(process.env.PORT||4000)+'/health',res=>res.pipe(process.stdout))\""
+  },
+  "dependencies": {
+    "@paypal/paypal-server-sdk": "^2.1.0",
+    "@prisma/client": "^5.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "googleapis": "^121.0.0",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.4",
+    "nunjucks": "^3.2.4",
+    "pg": "^8.11.0",
+    "windmill": "file:..",
+    "zod": "^3.23.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.0",
+    "prisma": "^5.8.0"
+  }
+}

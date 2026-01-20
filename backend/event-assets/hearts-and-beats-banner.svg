@@ -1,0 +1,57 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(236,72,153);stop-opacity:1" />
+      <stop offset="50%" style="stop-color:rgb(219,39,119);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(190,24,93);stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#grad1)" />
+  
+  <!-- Decorative hearts -->
+  <g opacity="0.15" fill="white">
+    <path d="M 150 100 C 150 80, 130 60, 110 60 C 90 60, 70 80, 70 100 C 70 130, 110 170, 150 200 C 190 170, 230 130, 230 100 C 230 80, 210 60, 190 60 C 170 60, 150 80, 150 100 Z" />
+    <path d="M 1050 450 C 1050 430, 1030 410, 1010 410 C 990 410, 970 430, 970 450 C 970 480, 1010 520, 1050 550 C 1090 520, 1130 480, 1130 450 C 1130 430, 1110 410, 1090 410 C 1070 410, 1050 430, 1050 450 Z" />
+    <path d="M 950 120 C 950 105, 935 90, 920 90 C 905 90, 890 105, 890 120 C 890 142, 920 172, 950 195 C 980 172, 1010 142, 1010 120 C 1010 105, 995 90, 980 90 C 965 90, 950 105, 950 120 Z" />
+  </g>
+  
+  <!-- Main title -->
+  <text x="600" y="220" font-family="Georgia, serif" font-size="90" font-weight="bold" fill="white" text-anchor="middle" filter="url(#shadow)">
+    Hearts and Beats
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="300" font-family="Arial, sans-serif" font-size="42" fill="white" text-anchor="middle" opacity="0.95">
+    Valentine's Day Celebration 2026
+  </text>
+  
+  <!-- Date and venue -->
+  <g opacity="0.9">
+    <text x="600" y="380" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle">
+      February 14, 2026
+    </text>
+    <text x="600" y="430" font-family="Arial, sans-serif" font-size="28" fill="white" text-anchor="middle">
+      Hill View Hall • Dublin, CA
+    </text>
+  </g>
+  
+  <!-- Early bird badge -->
+  <g transform="translate(900, 80)">
+    <circle cx="0" cy="0" r="80" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="3"/>
+    <text x="0" y="-15" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">
+      EARLY BIRD
+    </text>
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle">
+      $99
+    </text>
+    <text x="0" y="35" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" opacity="0.9">
+      per pass
+    </text>
+  </g>
+</svg>
+

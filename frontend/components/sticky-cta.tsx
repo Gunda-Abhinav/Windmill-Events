@@ -31,7 +31,7 @@ export function StickyCTA() {
         >
           <div className="container mx-auto px-4 py-3">
             <Link href="/contact">
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+              <Button className="w-full bg-primary hover:bg-primary/90 hover:scale-105 transition-transform duration-200 text-primary-foreground font-semibold">
                 <Calendar className="w-4 h-4 mr-2" />
                 Book Your Event Now
               </Button>

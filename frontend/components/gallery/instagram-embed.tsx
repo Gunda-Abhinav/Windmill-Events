@@ -111,7 +111,7 @@ export function InstagramEmbed() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+            <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 hover:scale-105 transition-transform duration-200 text-white">
               <Instagram className="w-4 h-4 mr-2" />
               Follow @windmillevents
               <ExternalLink className="w-4 h-4 ml-2" />

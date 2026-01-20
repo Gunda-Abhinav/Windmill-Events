@@ -4,40 +4,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Calendar, Phone, Mail, Sparkles } from "lucide-react"
 import { Sparkle } from "@/components/ui/sparkle"
 import Link from "next/link"
-import { useState } from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/ui/dialog"
 
 export function CTASection() {
-  const [open, setOpen] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [form, setForm] = useState({ name: "", email: "", message: "I'd like to book a consultation." })
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setLoading(true)
-    try {
-      const res = await fetch('/consultation', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-        credentials: 'same-origin'
-      })
-      if (res.ok) {
-        setSuccess(true)
-      } else {
-        const err = await res.json().catch(() => ({}))
-        console.error('submit error', err)
-        setSuccess(false)
-      }
-    } catch (err) {
-      console.error(err)
-      setSuccess(false)
-    } finally {
-      setLoading(false)
-    }
-  }
-
   return (
     <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
       <div className="container mx-auto px-4">
@@ -57,59 +25,24 @@ export function CTASection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Button onClick={() => setOpen(true)} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3">
-                <Calendar className="w-4 h-4 mr-2" />
-                Book Consultation
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 hover:scale-105 transition-transform duration-200 text-primary-foreground px-8 py-3">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Book Consultation
+                </Button>
+              </Link>
 
               <Link href="/contact">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground px-8 py-3 bg-transparent"
+                  className="border-secondary dark:border-white text-secondary hover:bg-secondary hover:text-secondary-foreground hover:scale-105 transition-transform duration-200 px-8 py-3 bg-transparent"
                 >
                   <Phone className="w-4 h-4 mr-2" />
                   Call (408) 922-9027
                 </Button>
               </Link>
             </div>
-
-            <Dialog open={open}>
-              <DialogContent>
-                {!success ? (
-                  <form onSubmit={handleSubmit}>
-                    <DialogHeader>
-                      <DialogTitle>Book a Consultation</DialogTitle>
-                      <DialogDescription>Enter your details and we will get back to you soon.</DialogDescription>
-                    </DialogHeader>
-
-                    <div className="grid gap-2">
-                      <input className="input bg-muted p-2 rounded" placeholder="Your name" value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} required />
-                      <input className="input bg-muted p-2 rounded" placeholder="Your email" type="email" value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} required />
-                      <textarea className="input bg-muted p-2 rounded" placeholder="Message" value={form.message} onChange={(e) => setForm({...form, message: e.target.value})} />
-                    </div>
-
-                    <DialogFooter>
-                      <div className="flex gap-2 justify-end">
-                        <Button type="button" variant="ghost" onClick={() => setOpen(false)}>Cancel</Button>
-                        <Button type="submit" disabled={loading} className="bg-primary">
-                          {loading ? 'Sending...' : 'Submit'}
-                        </Button>
-                      </div>
-                    </DialogFooter>
-                  </form>
-                ) : (
-                  <div className="text-center p-4">
-                    <h3 className="text-lg font-semibold">Successfully submitted</h3>
-                    <p className="mt-2">Your request has been received — we will get back to you soon.</p>
-                    <div className="mt-4">
-                      <Button onClick={() => { setOpen(false); setSuccess(false); setForm({ name: '', email: '', message: "I'd like to book a consultation." })}}>Close</Button>
-                    </div>
-                  </div>
-                )}
-                <DialogClose />
-              </DialogContent>
-            </Dialog>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-border">
               <div className="text-center">

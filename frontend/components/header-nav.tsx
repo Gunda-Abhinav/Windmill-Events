@@ -130,7 +130,7 @@ export function HeaderNav() {
                   </motion.div>
                 ))}
                 <Link href="/contact">
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full mt-4">
+                  <Button className="bg-primary hover:bg-primary/90 hover:scale-105 transition-transform duration-200 text-primary-foreground w-full mt-4">
                     Book Now
                   </Button>
                 </Link>

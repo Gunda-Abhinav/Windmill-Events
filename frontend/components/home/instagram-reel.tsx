@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Instagram, ExternalLink } from "lucide-react"
+import { Instagram, ExternalLink, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 interface EventData {
   id: string
@@ -86,6 +87,22 @@ export function InstagramReel() {
               </div>
             </Card>
           ))}
+          
+          {/* View All Events Button as Grid Item */}
+          <div className="relative aspect-square">
+            <div className="absolute inset-0 flex items-center justify-center p-4">
+              <Link href="/events">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button variant="outline" size="lg" className="group bg-transparent dark:border-white">
+                    View All Events
+                    <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </motion.div>
+                  </Button>
+                </motion.div>
+              </Link>
+            </div>
+          </div>
         </div>
 
         <div className="text-center">
@@ -94,7 +111,7 @@ export function InstagramReel() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+            <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 hover:scale-105 transition-transform duration-200 text-white">
               <Instagram className="w-4 h-4 mr-2" />
               Follow @windmillevents
               <ExternalLink className="w-4 h-4 ml-2" />

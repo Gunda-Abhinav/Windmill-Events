@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/react"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
-import { StickyCTA } from "@/components/sticky-cta"
 import { AnimatedBackground } from "@/components/animated-background"
 import { FloatingParticles } from "@/components/floating-particles"
 import { PageTransition } from "@/components/page-transition"
@@ -45,7 +44,6 @@ export default function RootLayout({
           <PageTransition>
             <Suspense fallback={null}>{children}</Suspense>
           </PageTransition>
-          <StickyCTA />
           <Toaster />
           <Analytics />
         </ThemeProvider>

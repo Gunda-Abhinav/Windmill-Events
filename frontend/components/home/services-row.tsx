@@ -81,7 +81,7 @@ families to plan and run every part of your celebration with care and cultural u
         >
           <Link href="/services">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="outline" size="lg" className="group bg-transparent">
+              <Button variant="outline" size="lg" className="group bg-transparent dark:border-white">
                 View All Services
                 <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}>
                   <ArrowRight className="w-4 h-4 ml-2" />

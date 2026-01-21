@@ -591,6 +591,29 @@ export default function RegisterPage() {
                     </div>
                   </div>
 
+                  {/* Additional Instructions */}
+                  <div className="rounded-lg border border-border bg-muted/50 p-4 md:p-6 space-y-3">
+                    <h3 className="font-semibold text-foreground text-base md:text-lg">Additional Instructions:</h3>
+                    <ul className="space-y-2 text-sm md:text-base leading-relaxed text-muted-foreground">
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1 flex-shrink-0">•</span>
+                        <span>Upon successful payment, a confirmation email will be sent and must be presented for event admission.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1 flex-shrink-0">•</span>
+                        <span>Payments are accepted only via PayPal or major credit cards.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1 flex-shrink-0">•</span>
+                        <span>All sales are final. Tickets are non-refundable, non-transferable, and non-creditable under any circumstances.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1 flex-shrink-0">•</span>
+                        <span>Windmill Events & Planning reserves the right to refuse entry at its discretion.</span>
+                      </li>
+                    </ul>
+                  </div>
+
                   {/* Release of liability */}
                   <div className="space-y-2">
                     <div className="flex items-start gap-3">
@@ -618,7 +641,7 @@ export default function RegisterPage() {
                         <span className="text-foreground"> (Release of Liability) *</span>
                       </div>
                     </div>
-                    {errors.acceptedLiability ? <p className="text-destructive text-sm">{errors.acceptedLiability}</p> : null}
+                    {errors.acceptedLiability && <p className="text-destructive text-sm">{errors.acceptedLiability}</p>}
                   </div>
 
                   <Button

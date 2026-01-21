@@ -33,12 +33,12 @@ export function TestimonialsHero() {
             </div>
             <div className="w-px h-12 bg-border"></div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-foreground">500+</div>
+              <div className="text-2xl font-bold text-foreground">50+</div>
               <div className="text-sm text-muted-foreground">Happy Clients</div>
             </div>
             <div className="w-px h-12 bg-border"></div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-foreground">98%</div>
+              <div className="text-2xl font-bold text-foreground">99%</div>
               <div className="text-sm text-muted-foreground">Would Recommend</div>
             </div>
           </div>

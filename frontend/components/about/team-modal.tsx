@@ -18,9 +18,9 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
   const extendedDetails = {
     "1": {
       fullBio:
-        "Vikram founded Windmill  Events with a vision to bridge traditional Indian celebrations with modern American event planning. His journey began in Mumbai, where he grew up surrounded by vibrant festivals and family celebrations. After moving to the US for his MBA, he noticed a gap in authentic cultural event planning and decided to fill it. With over 15 years of experience, Vikram has personally overseen more than 300 weddings and cultural celebrations, each one reflecting his commitment to authenticity and excellence.",
+        "Vikram founded Windmill  Events with a vision to bridge traditional Indian celebrations with modern American event planning. His journey began in Mumbai, where he grew up surrounded by vibrant festivals and family celebrations. After moving to the US for his MBA, he noticed a gap in authentic cultural event planning and decided to fill it. With over 18 years of experience, Vikram has personally overseen more than 300 weddings and cultural celebrations, each one reflecting his commitment to authenticity and excellence.",
       specialties: ["Traditional Ceremonies", "Cultural Consulting", "Event Strategy", "Vendor Relations"],
-      achievements: ["500+ Events Planned", "Featured in Bay Area Wedding Magazine", "Cultural Heritage Award 2023"],
+      achievements: ["50+ Events Planned", "Featured in Bay Area Wedding Magazine", "Cultural Heritage Award 2023"],
     },
     "2": {
       fullBio:
@@ -32,7 +32,7 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
       fullBio:
         "DJ Rohan discovered his love for music at age 12 when he started mixing Bollywood tracks with Western beats. His unique ability to read the crowd and create the perfect musical journey has made him one of the most sought-after DJs in the Bay Area. Rohan's expertise with professional audio equipment, combined with his vast knowledge of both traditional and contemporary music, ensures every celebration has the perfect soundtrack.",
       specialties: ["Professional Audio Setup", "Music Curation", "Live Mixing", "Cultural Music"],
-      achievements: ["1000+ Events DJ'd", "Bay Area's Best Cultural DJ 2022", "Professional Audio Certification"],
+      achievements: ["100+ Events DJ'd", "Bay Area's Best Cultural DJ 2022", "Professional Audio Certification"],
     },
     "4": {
       fullBio:

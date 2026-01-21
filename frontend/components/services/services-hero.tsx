@@ -21,11 +21,11 @@ export function ServicesHero() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-8 border-t border-border/50">
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary">30+</div>
+              <div className="text-2xl font-bold text-primary">40+</div>
               <div className="text-sm text-muted-foreground">Events Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary">2+</div>
+              <div className="text-2xl font-bold text-primary">8+</div>
               <div className="text-sm text-muted-foreground">Years Experience</div>
             </div>
             <div className="text-center">

@@ -4,7 +4,7 @@ export function CompanyStats() {
   const stats = [
     {
       icon: Calendar,
-      number: "30+",
+      number: "40+",
       label: "Events Completed",
       description: "Successful celebrations across the Bay Area",
     },
@@ -16,7 +16,7 @@ export function CompanyStats() {
     },
     {
       icon: Award,
-      number: "2+",
+      number: "8+",
       label: "Years Experience",
       description: "Creating unforgettable moments through experience",
     },

@@ -75,16 +75,7 @@ export function HeroVideo() {
               className="block"
             >
               {/* Authentic Cultural Events */}
-              Authentic Indian Celebrations
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="block text-primary dark:text-white"
-            >
-              {/* Crafted with Love */}
-              Planned End-to-End
+              Celebrations Designed with Heart
             </motion.span>
           </motion.h1>
 
@@ -92,13 +83,13 @@ export function HeroVideo() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-pretty"
+            className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-pretty font-semibold"
           >
             {/* Exquisite end-to-end event experiences with cultural authenticity, health-forward cocktails, and
             professional-grade production. Founded by Indians in the US, for celebrations that matter. */}
-            From pre-wedding functions to milestone birthdays, festivals, sangeet nights, housewarmings, and 
-            family gatherings, we handle the complete planning, decor, music, and coordination for your
-            Bay Area event.
+            We bring your most meaningful moments to life with seamless event planning and execution.
+            Whether it’s a wedding, cultural celebration, or private gathering, our team manages
+            everything—from planning and décor to music and on-site coordination.
           </motion.p>
 
           <motion.div
@@ -108,8 +99,8 @@ export function HeroVideo() {
             className="flex flex-wrap justify-center gap-8 py-6"
           >
             {[
-              { icon: Star, text: "30+ Events", fill: true },
-              { icon: Calendar, text: "2+ Years Experience", fill: false },
+              { icon: Star, text: "40+ Events", fill: true },
+              { icon: Calendar, text: "8+ Years Experience", fill: false },
               { icon: Sparkle, text: "Cultural Authenticity", fill: false },
             ].map((stat, index) => (
               <motion.div
@@ -164,18 +155,20 @@ export function HeroVideo() {
             className="pt-8"
           >
             <p className="text-sm mb-4">Trusted by families across the Bay Area</p>
-            <div className="flex justify-center items-center space-x-8 opacity-60">
-              <div className="text-xs font-medium">San Francisco</div>
+            <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 md:gap-x-6 lg:gap-x-8 opacity-60 max-w-3xl mx-auto">
+              <div className="text-xs md:text-sm font-medium">San Francisco</div>
               <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-              <div className="text-xs font-medium">San Jose</div>
+              <div className="text-xs md:text-sm font-medium">San Jose</div>
               <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-              <div className="text-xs font-medium">Sacremento</div>
+              <div className="text-xs md:text-sm font-medium">Sacramento</div>
               <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-              <div className="text-xs font-medium">Fremont</div>
+              <div className="text-xs md:text-sm font-medium">Fremont</div>
               <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-              <div className="text-xs font-medium">Dublin/Pleasanton</div>
+              <div className="text-xs md:text-sm font-medium">Dublin/Pleasanton</div>
               <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-              <div className="text-xs font-medium">Mountain House</div>
+              <div className="text-xs md:text-sm font-medium">Tracy</div>
+              <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
+              <div className="text-xs md:text-sm font-medium">Mountain House</div>
             </div>
           </motion.div>
         </div>

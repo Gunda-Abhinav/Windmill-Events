@@ -88,13 +88,13 @@ export function AboutHero() {
                     </p> */}
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Music className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg font-semibold text-foreground">In-house DJ, LED floor, décor, hosting, photo/video, cocktails & mocktails</h3>
+                    <h3 className="font-serif text-lg font-semibold text-foreground">In-house DJ, LED floor, decor, hosting, photo/video, cocktails & mocktails</h3>
                     {/* <p className="text-muted-foreground">
                       Every event is treated as if it were our own family celebration.
                     </p> */}

@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button"
 import { Play, Calendar, Star } from "lucide-react"
 import { Sparkle } from "@/components/ui/sparkle"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef, Suspense } from "react"
+import { useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function HeroVideo() {
   const ref = useRef<HTMLElement>(null)
@@ -22,18 +23,18 @@ export function HeroVideo() {
      
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20">
-          <motion.img
+          <Image
             src="/home-hero-image.avif"
-            // src="/indian-wedding-ceremony-with-mandap.jpg"
             alt="Elegant Indian wedding ceremony"
-            className="w-full h-full object-cover opacity-50"
-            initial={{ scale: 1.2 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            fill
+            className="object-cover opacity-50"
+            priority
+            quality={85}
+            sizes="100vw"
           />
         </div>
         {/* Combined radial and vertical gradient overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255, 255, 255, 0.3)_0%,rgba(255,255,255,0)_10%)] dark:bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.6)_0%,rgba(0,0,0,0)_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.3)_0%,rgba(255,255,255,0)_10%)] dark:bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.6)_0%,rgba(0,0,0,0)_70%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/40 to-background/10" />
       </motion.div>
 
@@ -91,7 +92,7 @@ export function HeroVideo() {
             professional-grade production. Founded by Indians in the US, for celebrations that matter. */}
             We bring your most meaningful moments to life with seamless event planning and execution.
             Whether it’s a wedding, cultural celebration, or private gathering, our team manages
-            everything—from planning and décor to music and on-site coordination.
+            everything from planning and decor to music and on-site coordination.
           </motion.p>
 
           <motion.div

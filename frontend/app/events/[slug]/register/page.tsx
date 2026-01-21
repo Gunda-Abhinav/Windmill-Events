@@ -304,7 +304,7 @@ export default function RegisterPage() {
       <div className="min-h-screen bg-background">
         <HeaderNav />
         <main className="container mx-auto px-4 py-16">
-          <Button variant="ghost" className="gap-2" onClick={() => router.push("/events")}> 
+          <Button variant="ghost" className="gap-2 bg-white/20 dark:bg-gray-900/20 hover:bg-white/20 hover:dark:bg-gray-900/20 transition-transform hover:scale-105" onClick={() => router.push("/events")}> 
             <ArrowLeft className="h-4 w-4" />
             Return to Events page
           </Button>
@@ -326,7 +326,7 @@ export default function RegisterPage() {
         <HeaderNav />
         <main className="container mx-auto px-4 py-16">
           <div className="mb-6">
-            <Button variant="ghost" className="gap-2" onClick={() => router.push("/events")}> 
+            <Button variant="ghost" className="gap-2 bg-white/20 dark:bg-gray-900/20 hover:bg-white/20 hover:dark:bg-gray-900/20 transition-transform hover:scale-105" onClick={() => router.push("/events")}> 
               <ArrowLeft className="h-4 w-4" />
               Return to Events page
             </Button>
@@ -387,11 +387,25 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
+      {/* Couple Background */}
+      <div className="relative">
+        {/* Background image with overlay - only between header and footer */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url(/Hearts-and-beats-couple.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            // filter: 'brightness(0.75) saturate(0.70) contrast(0.95) sepia(0.18)'
+          }}
+        >
+        </div>
 
-      <main className="container mx-auto px-4 py-16">
+        <main className="container mx-auto px-4 py-16 relative z-10">
         {/* Top-left return button */}
         <div className="mb-8">
-          <Button variant="ghost" className="gap-2" onClick={() => router.push("/events")}> 
+          <Button variant="ghost" className="gap-2 bg-white/80 dark:bg-gray-900/80 hover:bg-white/80 hover:dark:bg-gray-900/80 text-black dark:text-white hover:text-black hover:dark:text-white transition-transform hover:scale-105" onClick={() => router.push("/events")}> 
             <ArrowLeft className="h-4 w-4" />
             Return to Events page
           </Button>
@@ -422,7 +436,8 @@ export default function RegisterPage() {
           {/* Registration form */}
           <div className="lg:col-span-3">
             <Card className="border-0 bg-card/50 backdrop-blur-sm shadow-lg">
-              <CardHeader>
+              {/* Event info */}
+              {/* <CardHeader>
                 <CardTitle className="font-serif text-2xl">{event.title}</CardTitle>
                 <CardDescription>Event details</CardDescription>
               </CardHeader>
@@ -474,7 +489,7 @@ export default function RegisterPage() {
                     ) : null}
                   </div>
                 </div>
-              </CardContent>
+              </CardContent> */}
 
               <CardHeader>
                 {/* Dynamic registration heading */}
@@ -499,7 +514,7 @@ export default function RegisterPage() {
                         }}
                         placeholder="Your full name"
                         required
-                        className="border-border/50 focus:border-primary transition-all"
+                        className="border-border/50 focus:border-primary transition-all bg-white/20 dark:bg-gray-900/20"
                       />
                       {errors.fullName ? <p className="text-destructive text-sm">{errors.fullName}</p> : null}
                     </div>
@@ -520,7 +535,7 @@ export default function RegisterPage() {
                         }}
                         placeholder="your@email.com"
                         required
-                        className="border-border/50 focus:border-primary transition-all"
+                        className="border-border/50 focus:border-primary transition-all bg-white/20 dark:bg-gray-900/20"
                       />
                       {errors.email ? <p className="text-destructive text-sm">{errors.email}</p> : null}
                     </div>
@@ -547,7 +562,7 @@ export default function RegisterPage() {
                         }}
                         placeholder="Enter 10 digit phone number"
                         required
-                        className="border-border/50 focus:border-primary transition-all"
+                        className="border-border/50 focus:border-primary transition-all bg-white/20 dark:bg-gray-900/20"
                       />
                       {errors.phone ? <p className="text-destructive text-sm">{errors.phone}</p> : null}
                     </div>
@@ -565,7 +580,7 @@ export default function RegisterPage() {
                           })
                         }}
                       >
-                        <SelectTrigger className="border-border/50 focus:border-primary transition-all">
+                        <SelectTrigger className="border-border/50 focus:border-primary transition-all bg-white/20 dark:bg-gray-900/20">
                           <SelectValue placeholder="Select passes" />
                         </SelectTrigger>
                         <SelectContent>
@@ -583,16 +598,16 @@ export default function RegisterPage() {
                   <div className="grid md:grid-cols-2 gap-4 items-end">
                     <div className="space-y-2">
                       <Label>Price per pass</Label>
-                      <Input value={pricePerPass ? formatUSD(pricePerPass) : "TBD"} readOnly />
+                      <Input value={pricePerPass ? formatUSD(pricePerPass) : "TBD"} readOnly className="bg-white/20 dark:bg-gray-900/20" />
                     </div>
                     <div className="space-y-2">
                       <Label>Total Amount *</Label>
-                      <Input value={formatUSD(serverTotalAmount ?? totalAmount)} readOnly />
+                      <Input value={formatUSD(serverTotalAmount ?? totalAmount)} readOnly className="bg-white/20 dark:bg-gray-900/20" />
                     </div>
                   </div>
 
                   {/* Additional Instructions */}
-                  <div className="rounded-lg border border-border bg-muted/50 p-4 md:p-6 space-y-3">
+                  <div className="rounded-lg border border-border bg-white/20 dark:bg-gray-900/20 p-4 md:p-6 space-y-3">
                     <h3 className="font-semibold text-foreground text-base md:text-lg">Additional Instructions:</h3>
                     <ul className="space-y-2 text-sm md:text-base leading-relaxed text-muted-foreground">
                       <li className="flex items-start gap-2">
@@ -674,7 +689,7 @@ export default function RegisterPage() {
           </DialogContent>
         </Dialog>
       </main>
-
+      </div>
       <Footer />
     </div>
   )

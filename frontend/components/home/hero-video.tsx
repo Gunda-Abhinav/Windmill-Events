@@ -26,13 +26,15 @@ export function HeroVideo() {
             src="/home-hero-image.avif"
             // src="/indian-wedding-ceremony-with-mandap.jpg"
             alt="Elegant Indian wedding ceremony"
-            className="w-full h-full object-cover opacity-90"
+            className="w-full h-full object-cover opacity-50"
             initial={{ scale: 1.2 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-background/40" />
+        {/* Combined radial and vertical gradient overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255, 255, 255, 0.3)_0%,rgba(255,255,255,0)_10%)] dark:bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.6)_0%,rgba(0,0,0,0)_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/40 to-background/10" />
       </motion.div>
 
       <motion.div className="relative z-10 container mx-auto px-4 text-center">
@@ -110,8 +112,8 @@ export function HeroVideo() {
                 transition={{ delay: 0.8 + index * 0.1 }}
                 className="flex items-center space-x-2"
               >
-                <stat.icon className={`w-5 h-5 text-accent ${stat.fill ? "fill-current" : ""}`} />
-                <span className="text-sm font-medium">{stat.text}</span>
+                <stat.icon className={`w-6 h-6 text-accent ${stat.fill ? "fill-current" : ""}`} />
+                <span className="text-base font-medium">{stat.text}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -154,21 +156,21 @@ export function HeroVideo() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="pt-8"
           >
-            <p className="text-sm mb-4">Trusted by families across the Bay Area</p>
+            <p className="text-base mb-4">Trusted by families across the Bay Area</p>
             <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 md:gap-x-6 lg:gap-x-8 opacity-60 max-w-3xl mx-auto">
-              <div className="text-xs md:text-sm font-medium">San Francisco</div>
+              <div className="text-sm md:text-base font-medium">San Francisco</div>
               <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-              <div className="text-xs md:text-sm font-medium">San Jose</div>
+              <div className="text-sm md:text-base font-medium">San Jose</div>
               <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-              <div className="text-xs md:text-sm font-medium">Sacramento</div>
+              <div className="text-sm md:text-base font-medium">Sacramento</div>
               <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-              <div className="text-xs md:text-sm font-medium">Fremont</div>
+              <div className="text-sm md:text-base font-medium">Fremont</div>
               <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-              <div className="text-xs md:text-sm font-medium">Dublin/Pleasanton</div>
+              <div className="text-sm md:text-base font-medium">Dublin/Pleasanton</div>
               <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-              <div className="text-xs md:text-sm font-medium">Tracy</div>
+              <div className="text-sm md:text-base font-medium">Tracy</div>
               <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-              <div className="text-xs md:text-sm font-medium">Mountain House</div>
+              <div className="text-sm md:text-base font-medium">Mountain House</div>
             </div>
           </motion.div>
         </div>

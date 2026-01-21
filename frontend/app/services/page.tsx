@@ -1,5 +1,6 @@
 import { HeaderNav } from "@/components/header-nav"
 import { Footer } from "@/components/footer"
+import { AnnouncementBar } from "@/components/announcement-bar"
 import { ServicesHero } from "@/components/services/services-hero"
 import { ServicesGrid } from "@/components/services/services-grid"
 import { PackageBanner } from "@/components/services/package-banner"
@@ -9,6 +10,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
+      <AnnouncementBar />
       <main>
         <ServicesHero />
         <ScrollReveal>

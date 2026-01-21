@@ -1,5 +1,6 @@
 import { HeaderNav } from "@/components/header-nav"
 import { Footer } from "@/components/footer"
+import { AnnouncementBar } from "@/components/announcement-bar"
 import { AboutHero } from "@/components/about/about-hero"
 import { MissionBlock } from "@/components/about/mission-block"
 import { TeamGrid } from "@/components/about/team-grid"
@@ -11,6 +12,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
+      <AnnouncementBar />
       <main>
         <AboutHero />
         <ScrollReveal>

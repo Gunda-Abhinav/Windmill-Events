@@ -38,12 +38,13 @@ export function MediaGrid() {
         {/* Recent Posts Grid (clean cards, no long caption) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
+            "https://www.instagram.com/p/DQTF9dukVes/",
+            "https://www.instagram.com/p/DM0SE-VO99q/",
+            "https://www.instagram.com/p/DILOD_Kxu2E/",
             "https://www.instagram.com/p/DOTYFb1jll-/",
             "https://www.instagram.com/p/DOWIqLCEb6E/",
-            "https://www.instagram.com/p/DILOD_Kxu2E/",
             "https://www.instagram.com/p/DIMVoIfPvos/",
             "https://www.instagram.com/p/DKL_5b5xVDa/",
-            "https://www.instagram.com/p/DQTF9dukVes/",
           ].map((permalink, i) => (
             <Card key={i} className="ig-card overflow-hidden rounded-xl border border-border bg-card/80 shadow-sm">
               {/* Media wrapper — pick a tile aspect ratio */}

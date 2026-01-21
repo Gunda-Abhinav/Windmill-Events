@@ -1,5 +1,6 @@
 import { HeaderNav } from "@/components/header-nav"
 import { Footer } from "@/components/footer"
+import { AnnouncementBar } from "@/components/announcement-bar"
 import { HeroVideo } from "@/components/home/hero-video"
 import { ServicesRow } from "@/components/home/services-row"
 import { WhyUs } from "@/components/home/why-us"
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
+      <AnnouncementBar />
       <main>
         <HeroVideo />
         <ScrollReveal>

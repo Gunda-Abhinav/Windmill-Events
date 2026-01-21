@@ -26,18 +26,6 @@ export function AboutHero() {
               <div className="space-y-3">
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">What Makes Us Different...</h2>
                 
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <BookOpen className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-lg font-semibold text-foreground">Deep understanding of Indian traditions</h3>
-                    {/* <p className="text-muted-foreground">
-                      We understand the nuances of traditional ceremonies while embracing modern celebration styles.
-                    </p> */}
-                  </div>
-                </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -51,12 +39,13 @@ export function AboutHero() {
                   </div>
                 </div>
 
+                
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Music className="w-4 h-4 text-primary" />
+                    <Receipt className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg font-semibold text-foreground">In-house DJ, LED floor, decor team</h3>
+                    <h3 className="font-serif text-lg font-semibold text-foreground">Transparent pricing</h3>
                     {/* <p className="text-muted-foreground">
                       Every event is treated as if it were our own family celebration.
                     </p> */}
@@ -86,13 +75,26 @@ export function AboutHero() {
                     </p> */}
                   </div>
                 </div>
-
+                
+                
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Receipt className="w-4 h-4 text-primary" />
+                    <BookOpen className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg font-semibold text-foreground">Transparent pricing</h3>
+                    <h3 className="font-serif text-lg font-semibold text-foreground">Deep understanding of Indian traditions</h3>
+                    {/* <p className="text-muted-foreground">
+                      We understand the nuances of traditional ceremonies while embracing modern celebration styles.
+                    </p> */}
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Music className="w-4 h-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-lg font-semibold text-foreground">In-house DJ, LED floor, décor, hosting, photo/video, cocktails & mocktails</h3>
                     {/* <p className="text-muted-foreground">
                       Every event is treated as if it were our own family celebration.
                     </p> */}

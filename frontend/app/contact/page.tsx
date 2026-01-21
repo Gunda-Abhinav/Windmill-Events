@@ -1,5 +1,6 @@
 import { HeaderNav } from "@/components/header-nav"
 import { Footer } from "@/components/footer"
+import { AnnouncementBar } from "@/components/announcement-bar"
 import { ContactHero } from "@/components/contact/contact-hero"
 import { ContactForm } from "@/components/contact/contact-form"
 import { ContactInfo } from "@/components/contact/contact-info"
@@ -11,6 +12,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <HeaderNav />
+      <AnnouncementBar />
       <main>
         <ContactHero />
 

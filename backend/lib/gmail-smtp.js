@@ -20,6 +20,7 @@
  */
 
 const nodemailer = require('nodemailer')
+const dns = require('dns').promises
 
 /**
  * Create a Gmail SMTP transporter
@@ -39,29 +40,53 @@ async function createGmailTransport() {
   }
 
   // Create transporter with Gmail SMTP settings
+  // Try port 465 (SMTPS) first, which uses implicit TLS
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
-    port: 587,
-    secure: false, // Use STARTTLS
+    port: 465,
+    secure: true, // Use implicit TLS (SMTPS)
     auth: {
       user: user,
       pass: password,
     },
     // Connection timeout
-    connectionTimeout: 10000,
+    connectionTimeout: 15000,
     // Greeting timeout
-    greetingTimeout: 10000,
+    greetingTimeout: 15000,
     // Socket timeout
-    socketTimeout: 10000,
+    socketTimeout: 15000,
+    // TLS settings
+    tls: {
+      rejectUnauthorized: false, // Allow self-signed certificates (for debugging)
+      minVersion: 'TLSv1.2',
+    },
+    // Retry settings
+    maxConnections: 1,
+    maxMessages: 5,
+    rateDelta: 1000,
+    rateLimit: 5,
   })
 
   // Verify connection configuration
   try {
+    console.log(`Verifying Gmail SMTP connection to ${user}...`)
+
+    // Try DNS lookup first
+    try {
+      console.log('Attempting DNS lookup for smtp.gmail.com...')
+      const addresses = await dns.resolve4('smtp.gmail.com')
+      console.log('✅ DNS lookup successful:', addresses)
+    } catch (dnsError) {
+      console.error('⚠️  DNS lookup failed:', dnsError.message)
+    }
+
     await transporter.verify()
-    console.log('Gmail SMTP transport ready')
+    console.log('✅ Gmail SMTP transport ready')
     return transporter
   } catch (error) {
-    console.error('Gmail SMTP verification failed:', error.message)
+    console.error('❌ Gmail SMTP verification failed:', error.message)
+    console.error('Error code:', error.code)
+    console.error('Error details:', error)
     throw new Error(
       `Failed to connect to Gmail SMTP: ${error.message}\n` +
       'Please check your GMAIL_USER and GMAIL_APP_PASSWORD credentials.'

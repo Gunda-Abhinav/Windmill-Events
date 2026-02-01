@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { HeaderNav } from "@/components/header-nav"
 import { Footer } from "@/components/footer"
@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle2, Loader2, XCircle, Download, Printer } from "lucide-react"
 
-export default function PaymentSuccessPage() {
+function PaymentSuccessContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [status, setStatus] = useState<"loading" | "success" | "error">("loading")
@@ -304,6 +304,29 @@ Please save this confirmation for your records.
         <Footer />
       </div>
     </>
+  )
+}
+
+export default function PaymentSuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-background">
+        <HeaderNav />
+        <main className="container mx-auto px-4 py-16">
+          <div className="max-w-2xl mx-auto">
+            <Card className="border-0 bg-card/50 backdrop-blur-sm shadow-lg">
+              <CardContent className="pt-6 flex flex-col items-center justify-center py-12">
+                <Loader2 className="h-12 w-12 animate-spin text-primary mb-4" />
+                <p className="text-lg font-medium">Loading...</p>
+              </CardContent>
+            </Card>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    }>
+      <PaymentSuccessContent />
+    </Suspense>
   )
 }
 

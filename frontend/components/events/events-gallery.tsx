@@ -45,17 +45,31 @@ export function EventsGallery() {
     async function fetchEvents() {
       try {
         const apiUrl = process.env.NEXT_PUBLIC_API_URL || '/api'
-        const response = await fetch(`${apiUrl}/events`)
+        const response = await fetch(`${apiUrl}/events`, {
+          cache: 'no-cache',
+          headers: {
+            'Cache-Control': 'no-cache',
+          },
+        })
+
+        if (!response.ok) {
+          console.error('API response not OK:', response.status, response.statusText)
+          setError(`Failed to load events (${response.status})`)
+          setLoading(false)
+          return
+        }
+
         const data = await response.json()
 
         if (data.ok) {
           setEvents(data.events)
         } else {
+          console.error('API returned ok:false', data)
           setError('Failed to load events')
         }
       } catch (err) {
         console.error('Error fetching events:', err)
-        setError('Failed to load events')
+        setError(`Failed to load events: ${err instanceof Error ? err.message : 'Unknown error'}`)
       } finally {
         setLoading(false)
       }

@@ -1,0 +1,29 @@
+# Email Worker Dockerfile - runs email_worker_simple.js instead of server.js
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci --production
+
+# Copy application code
+COPY . .
+
+# Create a non-root user
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 expressjs && \
+    chown -R expressjs:nodejs /app
+
+USER expressjs
+
+# Cloud Run sets PORT environment variable (not used by email worker, but set for compatibility)
+ENV PORT=8080
+ENV NODE_ENV=production
+
+# Run the email worker instead of the server
+CMD ["node", "email_worker_simple.js"]
+

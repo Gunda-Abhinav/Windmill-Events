@@ -4,7 +4,7 @@ import type React from "react"
 
 import { motion, AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 interface PageTransitionProps {
   children: React.ReactNode
@@ -12,17 +12,10 @@ interface PageTransitionProps {
 
 export function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname()
-  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
     // Scroll to top on route change
-    window.scrollTo({ top: 0, behavior: "instant" })
-    setIsReady(false)
-    const timer = setTimeout(() => {
-      setIsReady(true)
-    }, 50)
-
-    return () => clearTimeout(timer)
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }, [pathname])
 
   return (
@@ -30,7 +23,7 @@ export function PageTransition({ children }: PageTransitionProps) {
       <motion.div
         key={pathname}
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: isReady ? 1 : 0, y: isReady ? 0 : 20 }}
+        animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{
           duration: 0.3,

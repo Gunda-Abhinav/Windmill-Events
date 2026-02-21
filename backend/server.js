@@ -220,7 +220,7 @@ app.get('/api/events/:slug', async (req, res) => {
       }
     }
 
-    // Format banner
+    // Format banner - convert binary data to base64
     let bannerUrl = null
     if (event.image_data && event.image_type) {
       const base64 = event.image_data.toString('base64')
@@ -695,7 +695,5 @@ app.use((req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Backend (Express) listening on ${PORT}`)
-  if (process.env.NODE_ENV === 'production') {
-    console.log(`Serving frontend from ${staticPath}`)
-  }
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`)
 })

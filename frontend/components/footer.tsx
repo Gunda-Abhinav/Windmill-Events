@@ -1,10 +1,12 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Instagram, Facebook, Twitter, Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin } from "lucide-react"
 import { Sparkle } from "@/components/ui/sparkle"
 
 export function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="bg-muted/30 border-t border-border">
       <div className="container mx-auto px-4 py-12">
@@ -32,7 +34,11 @@ export function Footer() {
 
             <div className="flex space-x-4">
               <Link href="https://www.instagram.com/windmill_for_events" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram size={20} />
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <circle cx="17.5" cy="6.5" r="1.5"></circle>
+                </svg>
               </Link>
               {/* <Link href="" className="text-muted-foreground hover:text-primary transition-colors">
                 <Facebook size={20} />
@@ -101,7 +107,7 @@ export function Footer() {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2025 Windmill Events. All rights reserved.
+            © {currentYear} Windmill Events. All rights reserved.
           </p>
         </div>
       </div>

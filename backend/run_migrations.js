@@ -10,7 +10,9 @@ async function run() {
     process.exit(1)
   }
 
-  const files = fs.readdirSync(migrationsDir).filter(f => f.endsWith('.sql')).sort()
+  const files = fs.readdirSync(migrationsDir)
+    .filter(f => f.endsWith('.sql') && !f.startsWith('.') && !f.startsWith('._'))
+    .sort()
   if (!files.length) {
     console.log('No .sql migration files found')
     return

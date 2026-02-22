@@ -5,32 +5,85 @@ import Link from "next/link"
 import { Calendar, Sparkles, ArrowRight } from "lucide-react"
 import { useEffect, useState } from "react"
 
+interface EventData {
+  id: string
+  title: string
+  slug: string
+  date: string
+  link?: string
+}
+
 export function AnnouncementBar() {
   const [isVisible, setIsVisible] = useState(true)
-
-  // Announcement content - can be made dynamic by fetching from API
-  const announcements = [
-    {
-      text: "🎉 Upcoming Event: Hearts and Beats - Register Now!",
-      link: "/events",
-    },
-    {
-      text: "🎉 Upcoming Event: Hearts and Beats - Register Now!",
-      link: "/events",
-    },
-  ]
-
+  const [announcements, setAnnouncements] = useState<Array<{ text: string; link: string }>>([])
+  const [loading, setLoading] = useState(true)
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
+    async function fetchUpcomingEvents() {
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || '/api'
+        console.log('Fetching from:', `${apiUrl}/events`)
+        
+        const response = await fetch(`${apiUrl}/events`)
+        const data = await response.json()
+        
+        console.log('API Response:', data)
+        console.log('Has events?', !!data.events)
+        console.log('Events count:', data.events?.length)
+
+        if (data.ok && data.events) {
+          // Future events with active status
+          const now = new Date()
+          console.log('Current date & time:', now)
+          
+          const upcomingEvents = data.events.filter((event: any) => {
+            const eventDate = new Date(event.eventDate)
+            const isFuture = eventDate > now
+            const isActive = event.status === 'active'
+            console.log(`Event: ${event.title} | Start Time: ${eventDate} | Current Time: ${now} | Started: ${!isFuture} | Is Active: ${isActive}`)
+            // Only show future events AND active
+            return isFuture && isActive
+          })
+
+          console.log('Upcoming events found:', upcomingEvents.length)
+
+          // Create announcements from upcoming events
+          if (upcomingEvents.length > 0) {
+            const announcementsList = upcomingEvents.map((event: any) => ({
+              text: `🎉 Upcoming Event: ${event.title} - Register Now!`,
+              link: `/events`,
+            }))
+            setAnnouncements(announcementsList)
+            console.log('Announcements set:', announcementsList)
+          } else {
+            console.log('No upcoming active events found')
+          }
+        } else {
+          console.log('API response missing ok or events field')
+        }
+      } catch (err) {
+        console.error('Error fetching upcoming events:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchUpcomingEvents()
+  }, [])
+
+  useEffect(() => {
+    if (announcements.length <= 1) return
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % announcements.length)
-    }, 5000) // Change announcement every 5 seconds
+    }, 3000)
 
     return () => clearInterval(interval)
   }, [announcements.length])
 
-  if (!isVisible) return null
+  // Hide if loading, no announcements, or user closes it
+  if (loading || !isVisible || announcements.length === 0) return null
 
   return (
     <motion.div
@@ -41,7 +94,7 @@ export function AnnouncementBar() {
       className="sticky top-[64px] md:top-[72px] z-40 bg-gradient-to-r from-primary/90 via-accent/90 to-secondary/90 backdrop-blur-md border-b border-border/50 overflow-hidden"
     >
       <Link href={announcements[currentIndex].link} className="block">
-        <div className="container mx-auto px-4 py-3 relative group cursor-pointer">
+        <div className="container mx-auto px-4 py-3 relative group cursor-pointer pr-14 md:pr-16">
           {/* Animated background shimmer */}
           <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
           
@@ -99,19 +152,20 @@ export function AnnouncementBar() {
         </div>
       </Link>
 
-      {/* Optional close button */}
+      {/* Close button - positioned outside main content */}
       <button
         onClick={(e) => {
           e.preventDefault()
+          e.stopPropagation()
           setIsVisible(false)
         }}
-        className="absolute right-2 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-1"
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-1 z-50"
         aria-label="Close announcement"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
+          width="18"
+          height="18"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
